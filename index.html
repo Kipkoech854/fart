@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click me!</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Use svh to stay inside the mobile browser's UI bars */
+    height: 100svh; 
+    margin: 0;
+    background-color: #121212;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    overflow: hidden; /* Prevents accidental scrolling */
+    touch-action: manipulation; /* Disables double-tap to zoom for faster clicking */
+  }
+
+  button {
+    width: 90vw; /* Use most of the screen width */
+    max-width: 400px;
+    /* max-height prevents it from hitting the top/bottom edges */
+    max-height: 85svh; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 4px solid #fff;
+    border-radius: 25px;
+    background: #f0f0f0;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    transition: transform 0.05s linear;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* Faster shake for mobile "haptics" feel */
+  @keyframes shake {
+    0% { transform: scale(1) translate(0); }
+    25% { transform: scale(1.05) translate(-4px, 2px); }
+    50% { transform: scale(1.05) translate(4px, -2px); }
+    75% { transform: scale(1.05) translate(-2px, -2px); }
+    100% { transform: scale(1) translate(0); }
+  }
+
+  .shake-it {
+    animation: shake 0.2s ease-in-out;
+    background-color: #ffdbdb;
+  }
+
+  /* Make sure images/videos don't stretch the button off-screen */
+  button img, button video {
+    width: 100%;
+    height: auto;
+    max-height: 50svh; /* Limits height to half the screen */
+    object-fit: contain;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: 2px solid #000;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: clamp(18px, 6vw, 28px);
+    color: #222;
+    line-height: 1.2;
+  }
+</style>
+</head>
+<body>
+
+  <button id="clickme">TAP FOR SURPRISE 🍑💨</button>
+
+  <script src="./index.js"></script>
+</body>
+</html>
